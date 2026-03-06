@@ -18,28 +18,34 @@ color:white;
 background:linear-gradient(135deg,#cc0000,#000000);
 }
 
-/* Top left branding */
+/* Top-left logo area */
 
-#rec-title{
+#branding{
 position:absolute;
-top:40px;
+top:35px;
 left:60px;
-font-size:46px;
-font-weight:bold;
-font-family:"Times New Roman", Times, serif;
-letter-spacing:1px;
-
-/* red accent similar to the logo styling */
-text-shadow:
-2px 2px 0 #cc0000,
-4px 4px 6px rgba(0,0,0,0.6);
+display:flex;
+align-items:center;
+gap:15px;
 }
+
+#brand-logo{
+height:60px;
+}
+
+#brand-text{
+font-family:"Times New Roman", Times, serif;
+font-size:38px;
+font-weight:bold;
+}
+
+/* Subtitle */
 
 #subtitle{
 position:absolute;
-top:95px;
+top:110px;
 left:60px;
-font-size:22px;
+font-size:28px;
 opacity:0.95;
 }
 
@@ -74,7 +80,11 @@ box-shadow:0 6px 18px rgba(0,0,0,0.6);
 
 <body>
 
-<div id="rec-title">Texas Tech University Recreation</div>
+<div id="branding">
+<img id="brand-logo" src="/brand/images/visual-identity/retired-double-t-wordmark.png">
+<div id="brand-text">Recreation</div>
+</div>
+
 <div id="subtitle">Welcome to the Rec Center</div>
 
 <div id="time"></div>
