@@ -2,36 +2,59 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Clock</title>
+<title>Texas Tech Rec Display</title>
 
 <style>
 
 body{
 margin:0;
-background:black;
-color:white;
-font-family:Arial, sans-serif;
+height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-height:100vh;
-flex-direction:column;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+
+/* Red → Black Gradient */
+background:linear-gradient(135deg,#cc0000,#000000);
+}
+
+#rec-title{
+position:absolute;
+top:40px;
+left:60px;
+font-size:42px;
+font-weight:bold;
+}
+
+#subtitle{
+position:absolute;
+top:90px;
+left:60px;
+font-size:22px;
+opacity:0.9;
 }
 
 #time{
-font-size:120px;
+font-size:200px;
+font-weight:bold;
+text-align:center;
+letter-spacing:6px;
 }
 
 #date{
-font-size:40px;
+font-size:50px;
 margin-top:10px;
+text-align:center;
 }
 
 #logo{
-position:fixed;
-bottom:20px;
-right:20px;
-width:200px;
+position:absolute;
+bottom:30px;
+right:40px;
+width:190px;
+opacity:0.95;
 }
 
 </style>
@@ -39,10 +62,13 @@ width:200px;
 
 <body>
 
+<div id="rec-title">Texas Tech University Recreation</div>
+<div id="subtitle">Welcome to the Rec Center</div>
+
 <div id="time"></div>
 <div id="date"></div>
 
-<img id="logo" src="PUT_LOGO_URL_HERE">
+<img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Double_T_Original.png">
 
 <script>
 
