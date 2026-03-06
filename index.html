@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Clock</title>
+
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-size:100px;
+}
+
+#clock{
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="clock"></div>
+
+<script>
+function updateClock(){
+const now = new Date();
+
+const time = now.toLocaleTimeString([], {
+hour: '2-digit',
+minute:'2-digit',
+second:'2-digit'
+});
+
+document.getElementById("clock").innerHTML = time;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+</html>
