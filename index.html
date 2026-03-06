@@ -18,22 +18,32 @@ color:white;
 background:linear-gradient(135deg,#cc0000,#000000);
 }
 
+/* Top left branding */
+
 #rec-title{
 position:absolute;
 top:40px;
 left:60px;
-font-size:42px;
+font-size:46px;
 font-weight:bold;
 font-family:"Times New Roman", Times, serif;
+letter-spacing:1px;
+
+/* red accent similar to the logo styling */
+text-shadow:
+2px 2px 0 #cc0000,
+4px 4px 6px rgba(0,0,0,0.6);
 }
 
 #subtitle{
 position:absolute;
-top:90px;
+top:95px;
 left:60px;
 font-size:22px;
-opacity:0.9;
+opacity:0.95;
 }
+
+/* Clock */
 
 #time{
 font-size:180px;
@@ -48,12 +58,15 @@ margin-top:10px;
 text-align:center;
 }
 
+/* Bottom-right image */
+
 #logo{
 position:absolute;
 bottom:30px;
 right:40px;
-width:200px;
-opacity:0.95;
+width:180px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.6);
 }
 
 </style>
@@ -67,7 +80,7 @@ opacity:0.95;
 <div id="time"></div>
 <div id="date"></div>
 
-<img id="logo" src="https://i.ytimg.com/vi/5PgfkFheK04/hqdefault.jpg">
+<img id="logo" src="https://play-lh.googleusercontent.com/AowrrGqZ3f7d-lER8rWrbXEO_tBq95uybqKmLtqcjMlZO51yPMq7Q-xo52NSI5L-RAE=w240-h480-rw">
 
 <script>
 
@@ -76,16 +89,16 @@ function updateClock(){
 const now = new Date();
 
 const time = now.toLocaleTimeString([], {
-hour: '2-digit',
+hour:'2-digit',
 minute:'2-digit',
 second:'2-digit'
 });
 
 const date = now.toLocaleDateString([], {
-weekday: 'long',
-year: 'numeric',
-month: 'long',
-day: 'numeric'
+weekday:'long',
+year:'numeric',
+month:'long',
+day:'numeric'
 });
 
 document.getElementById("time").innerHTML = time;
