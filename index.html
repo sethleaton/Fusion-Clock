@@ -10,86 +10,125 @@ body{
 margin:0;
 overflow:hidden;
 font-family:Arial, Helvetica, sans-serif;
-background:black;
-}
-
-/* Portrait signage canvas */
-
-#canvas{
-width:1080px;
-height:1920px;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+height:100vh;
+width:100vw;
 color:white;
 background:linear-gradient(135deg,#cc0000,#000000);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
 
-/* Top centered Texas Tech wordmark */
+/* Texas Tech Logo */
 
 #top-logo{
 position:absolute;
-top:60px;
+top:3vh;
 left:50%;
 transform:translateX(-50%);
-width:520px; /* reduced so it fits portrait safely */
+width:40vw;
+max-width:700px;
 height:auto;
 }
 
-/* Subtitle centered under logo */
+/* Subtitle */
 
 #subtitle{
 position:absolute;
-top:200px;
+top:12vh;
 left:50%;
 transform:translateX(-50%);
-font-size:50px;
-opacity:0.95;
+font-size:clamp(28px,3vw,60px);
 text-align:center;
-width:90%;
+width:80%;
+opacity:0.95;
 }
 
-/* Bottom-right Rec logo */
+/* Bottom Rec Logo */
 
 #bottom-logo{
 position:absolute;
-bottom:80px;
-right:60px;
-width:260px;
-}
-
-/* Clock container */
-
-#clock-container{
-position:absolute;
-top:55%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-width:100%;
+bottom:3vh;
+right:3vw;
+width:12vw;
+max-width:260px;
 }
 
 /* Clock */
 
+#clock-container{
+text-align:center;
+}
+
 #time{
-font-size:220px;
+font-size:clamp(120px,12vw,260px);
 font-weight:bold;
-letter-spacing:6px;
+letter-spacing:.4vw;
 line-height:1;
 }
 
 #date{
-font-size:70px;
-margin-top:20px;
+font-size:clamp(32px,3vw,70px);
+margin-top:1vh;
+}
+
+/* PORTRAIT MODE (9:16 screens) */
+
+@media (orientation:portrait){
+
+#top-logo{
+width:70vw;
+max-width:700px;
+top:5vh;
+}
+
+#subtitle{
+top:16vh;
+font-size:clamp(30px,4vw,70px);
+}
+
+#time{
+font-size:clamp(160px,18vw,320px);
+}
+
+#date{
+font-size:clamp(40px,4vw,80px);
+}
+
+#bottom-logo{
+width:28vw;
+}
+
+}
+
+/* LANDSCAPE MODE (16:9 screens) */
+
+@media (orientation:landscape){
+
+#top-logo{
+width:35vw;
+top:3vh;
+}
+
+#subtitle{
+top:12vh;
+}
+
+#time{
+font-size:clamp(140px,12vw,260px);
+}
+
+#bottom-logo{
+width:12vw;
+}
+
 }
 
 </style>
 </head>
 
 <body>
-
-<div id="canvas">
 
 <img id="top-logo" src="Texas-Tech-Word-Mark-1Lrvs.png">
 
@@ -101,8 +140,6 @@ margin-top:20px;
 </div>
 
 <img id="bottom-logo" src="University Recreation fl4CBWrvs.png">
-
-</div>
 
 <script>
 
@@ -130,25 +167,6 @@ document.getElementById("date").innerHTML = date;
 
 setInterval(updateClock,1000);
 updateClock();
-
-/* Auto scale for any display */
-
-function scaleCanvas(){
-
-const canvas = document.getElementById("canvas");
-
-const scaleX = window.innerWidth / 1080;
-const scaleY = window.innerHeight / 1920;
-
-const scale = Math.max(scaleX, scaleY);
-
-canvas.style.transform =
-"translate(-50%, -50%) scale(" + scale + ")";
-
-}
-
-window.addEventListener("resize", scaleCanvas);
-scaleCanvas();
 
 </script>
 
