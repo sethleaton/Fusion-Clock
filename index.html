@@ -26,26 +26,28 @@ color:white;
 background:linear-gradient(135deg,#cc0000,#000000);
 }
 
-/* Top-left Texas Tech wordmark */
+/* Top centered Texas Tech wordmark */
 
 #top-logo{
 position:absolute;
 top:60px;
-left:60px;
-width:700px; /* prevents clipping */
-max-width:90%;
+left:50%;
+transform:translateX(-50%);
+width:520px; /* reduced so it fits portrait safely */
 height:auto;
 }
 
-/* Subtitle */
+/* Subtitle centered under logo */
 
 #subtitle{
 position:absolute;
-top:230px;
-left:60px;
+top:200px;
+left:50%;
+transform:translateX(-50%);
 font-size:50px;
 opacity:0.95;
-max-width:900px;
+text-align:center;
+width:90%;
 }
 
 /* Bottom-right Rec logo */
@@ -129,7 +131,7 @@ document.getElementById("date").innerHTML = date;
 setInterval(updateClock,1000);
 updateClock();
 
-/* Auto scale and center for any display */
+/* Auto scale for any display */
 
 function scaleCanvas(){
 
