@@ -20,32 +20,32 @@ align-items:center;
 justify-content:center;
 }
 
-/* Texas Tech Logo */
+/* Top logo edge-to-edge */
 
 #top-logo{
 position:absolute;
-top:3vh;
-left:50%;
-transform:translateX(-50%);
-width:40vw;
-max-width:700px;
+top:0;
+left:0;
+width:100%; /* spans entire width */
 height:auto;
+max-height:180px; /* keeps it from being too tall */
+object-fit:contain;
 }
 
-/* Subtitle */
+/* Subtitle under logo */
 
 #subtitle{
 position:absolute;
-top:12vh;
+top:calc(180px + 20px); /* 20px padding under logo */
 left:50%;
 transform:translateX(-50%);
 font-size:clamp(28px,3vw,60px);
 text-align:center;
-width:80%;
+width:90%;
 opacity:0.95;
 }
 
-/* Bottom Rec Logo */
+/* Bottom-right Rec logo */
 
 #bottom-logo{
 position:absolute;
@@ -55,45 +55,46 @@ width:12vw;
 max-width:260px;
 }
 
-/* Clock */
+/* Clock container */
 
 #clock-container{
 text-align:center;
+margin-top:20px;
 }
 
+/* Clock (15% smaller) */
+
 #time{
-font-size:clamp(120px,12vw,260px);
+font-size:clamp(102px,10.2vw,221px); /* 15% smaller than previous ~120-260 */
 font-weight:bold;
-letter-spacing:.4vw;
+letter-spacing:.34vw;
 line-height:1;
 }
 
 #date{
-font-size:clamp(32px,3vw,70px);
+font-size:clamp(27px,2.55vw,59px);
 margin-top:1vh;
 }
 
-/* PORTRAIT MODE (9:16 screens) */
+/* PORTRAIT MODE */
 
 @media (orientation:portrait){
 
 #top-logo{
-width:70vw;
-max-width:700px;
-top:5vh;
+max-height:140px; 
 }
 
 #subtitle{
-top:16vh;
+top:calc(140px + 20px);
 font-size:clamp(30px,4vw,70px);
 }
 
 #time{
-font-size:clamp(160px,18vw,320px);
+font-size:clamp(136px,15.3vw,272px); /* 15% smaller than original */
 }
 
 #date{
-font-size:clamp(40px,4vw,80px);
+font-size:clamp(34px,3.4vw,68px);
 }
 
 #bottom-logo{
@@ -102,21 +103,20 @@ width:28vw;
 
 }
 
-/* LANDSCAPE MODE (16:9 screens) */
+/* LANDSCAPE MODE */
 
 @media (orientation:landscape){
 
 #top-logo{
-width:35vw;
-top:3vh;
+max-height:120px;
 }
 
 #subtitle{
-top:12vh;
+top:calc(120px + 20px);
 }
 
 #time{
-font-size:clamp(140px,12vw,260px);
+font-size:clamp(119px,10.2vw,221px);
 }
 
 #bottom-logo{
