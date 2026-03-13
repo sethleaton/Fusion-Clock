@@ -8,9 +8,9 @@
 
 body{
 margin:0;
-background:black;
 overflow:hidden;
 font-family:Arial, Helvetica, sans-serif;
+background:black;
 }
 
 /* Portrait signage canvas */
@@ -19,8 +19,9 @@ font-family:Arial, Helvetica, sans-serif;
 width:1080px;
 height:1920px;
 position:absolute;
-top:0;
-left:0;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 color:white;
 background:linear-gradient(135deg,#cc0000,#000000);
 }
@@ -31,7 +32,9 @@ background:linear-gradient(135deg,#cc0000,#000000);
 position:absolute;
 top:60px;
 left:60px;
-height:140px; /* large for portrait */
+width:700px; /* prevents clipping */
+max-width:90%;
+height:auto;
 }
 
 /* Subtitle */
@@ -126,7 +129,7 @@ document.getElementById("date").innerHTML = date;
 setInterval(updateClock,1000);
 updateClock();
 
-/* Auto-scale to any screen */
+/* Auto scale and center for any display */
 
 function scaleCanvas(){
 
@@ -135,10 +138,10 @@ const canvas = document.getElementById("canvas");
 const scaleX = window.innerWidth / 1080;
 const scaleY = window.innerHeight / 1920;
 
-const scale = Math.min(scaleX, scaleY);
+const scale = Math.max(scaleX, scaleY);
 
-canvas.style.transform = "scale(" + scale + ")";
-canvas.style.transformOrigin = "top left";
+canvas.style.transform =
+"translate(-50%, -50%) scale(" + scale + ")";
 
 }
 
