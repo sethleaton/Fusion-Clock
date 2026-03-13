@@ -13,11 +13,11 @@ overflow:hidden;
 font-family:Arial, Helvetica, sans-serif;
 }
 
-/* Fixed signage canvas */
+/* Portrait signage canvas */
 
 #canvas{
-width:1920px;
-height:1080px;
+width:1080px;
+height:1920px;
 position:absolute;
 top:0;
 left:0;
@@ -29,50 +29,54 @@ background:linear-gradient(135deg,#cc0000,#000000);
 
 #top-logo{
 position:absolute;
-top:40px;
+top:60px;
 left:60px;
-height:110px; /* 25% larger */
+height:140px; /* large for portrait */
 }
 
 /* Subtitle */
 
 #subtitle{
 position:absolute;
-top:170px;
-left:60px; /* perfectly aligned with logo */
-font-size:40px;
+top:230px;
+left:60px;
+font-size:50px;
 opacity:0.95;
+max-width:900px;
 }
 
 /* Bottom-right Rec logo */
 
 #bottom-logo{
 position:absolute;
-bottom:40px;
+bottom:80px;
 right:60px;
-width:230px;
+width:260px;
+}
+
+/* Clock container */
+
+#clock-container{
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+width:100%;
 }
 
 /* Clock */
 
-#clock-container{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-40%);
-text-align:center;
-}
-
 #time{
-font-size:180px;
+font-size:220px;
 font-weight:bold;
 letter-spacing:6px;
 line-height:1;
 }
 
 #date{
-font-size:55px;
-margin-top:10px;
+font-size:70px;
+margin-top:20px;
 }
 
 </style>
@@ -96,8 +100,6 @@ margin-top:10px;
 </div>
 
 <script>
-
-/* Clock */
 
 function updateClock(){
 
@@ -124,14 +126,14 @@ document.getElementById("date").innerHTML = date;
 setInterval(updateClock,1000);
 updateClock();
 
-/* Auto scale for any display */
+/* Auto-scale to any screen */
 
 function scaleCanvas(){
 
 const canvas = document.getElementById("canvas");
 
-const scaleX = window.innerWidth / 1920;
-const scaleY = window.innerHeight / 1080;
+const scaleX = window.innerWidth / 1080;
+const scaleY = window.innerHeight / 1920;
 
 const scale = Math.min(scaleX, scaleY);
 
