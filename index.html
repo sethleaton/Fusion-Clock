@@ -64,10 +64,17 @@ width:100%;
 }
 
 #time{
-font-size:clamp(6vh,8vh,10vh); /* scales with height */
+font-size:120px; /* starting size (JS will adjust) */
 font-weight:bold;
-letter-spacing:.5vh;
+letter-spacing:.15vw;
 line-height:1;
+white-space:nowrap;
+display:inline-block;
+}
+
+#ampm{
+font-size:.45em;
+margin-left:.5vw;
 }
 
 #date{
@@ -109,6 +116,54 @@ max-width:25%;
 
 function updateClock(){
 
+const now = new Date();
+
+const time = now.toLocaleTimeString([], {
+hour:'numeric',
+minute:'2-digit',
+second:'2-digit',
+hour12:true
+});
+
+const parts = time.split(' ');
+const mainTime = parts[0];
+const ampm = parts[1];
+
+document.getElementById("time").innerHTML =
+`${mainTime}<span id="ampm"> ${ampm}</span>`;
+
+const date = now.toLocaleDateString([], {
+weekday:'long',
+year:'numeric',
+month:'long',
+day:'numeric'
+});
+
+document.getElementById("date").innerHTML = date;
+
+// 🔥 KEY LINE
+fitClock();
+
+}
+
+ function fitClock(){
+
+const container = document.getElementById("clock-container");
+const timeEl = document.getElementById("time");
+
+let maxFontSize = 200;  // starting big
+let minFontSize = 40;   // safety floor
+
+timeEl.style.fontSize = maxFontSize + "px";
+
+// shrink until it fits
+while (timeEl.scrollWidth > container.clientWidth && maxFontSize > minFontSize){
+    maxFontSize -= 2;
+    timeEl.style.fontSize = maxFontSize + "px";
+}
+
+}
+  
 const now = new Date();
 
 const time = now.toLocaleTimeString([], {
