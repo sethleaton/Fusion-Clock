@@ -10,125 +10,87 @@ body{
 margin:0;
 overflow:hidden;
 font-family:Arial, Helvetica, sans-serif;
-height:100vh;
-width:100vw;
-color:white;
-background:linear-gradient(135deg,#cc0000,#000000);
+background:#000;
 display:flex;
-flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-/* Top logo edge-to-edge */
+/* 9:16 SAFE CONTAINER */
+
+#screen{
+position:relative;
+width:56.25vh; /* 9:16 ratio (9/16 = 0.5625) */
+height:100vh;
+background:linear-gradient(135deg,#cc0000,#000000);
+color:white;
+overflow:hidden;
+}
+
+/* TOP LOGO */
 
 #top-logo{
 position:absolute;
-top:0;
-left:0;
-width:100%; /* spans entire width */
-height:auto;
-max-height:180px; /* keeps it from being too tall */
+top:2vh;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+max-height:14vh;
 object-fit:contain;
 }
 
-/* Subtitle under logo */
+/* SUBTITLE */
 
 #subtitle{
 position:absolute;
-top:calc(180px + 20px); /* 20px padding under logo */
+top:18vh;
 left:50%;
 transform:translateX(-50%);
-font-size:clamp(28px,3vw,60px);
+font-size:clamp(2vh,3.5vh,4.5vh);
 text-align:center;
 width:90%;
-opacity:0.95;
 }
 
-/* Bottom-right Rec logo */
-
-#bottom-logo{
-position:absolute;
-bottom:3vh;
-right:3vw;
-width:12vw;
-max-width:260px;
-}
-
-/* Clock container */
+/* CLOCK */
 
 #clock-container{
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
 text-align:center;
-margin-top:20px;
+width:100%;
 }
 
-/* Clock (15% smaller) */
-
 #time{
-font-size:clamp(102px,10.2vw,221px); /* 15% smaller than previous ~120-260 */
+font-size:clamp(8vh,10vh,12vh); /* scales with height */
 font-weight:bold;
-letter-spacing:.34vw;
+letter-spacing:.5vh;
 line-height:1;
 }
 
 #date{
-font-size:clamp(27px,2.55vw,59px);
+font-size:clamp(2.5vh,3vh,4vh);
 margin-top:1vh;
 }
 
-/* PORTRAIT MODE */
-
-@media (orientation:portrait){
-
-#top-logo{
-max-height:140px; 
-}
-
-#subtitle{
-top:calc(140px + 20px);
-font-size:clamp(30px,4vw,70px);
-}
-
-#time{
-font-size:clamp(136px,15.3vw,272px); /* 15% smaller than original */
-}
-
-#date{
-font-size:clamp(34px,3.4vw,68px);
-}
+/* BOTTOM LOGO */
 
 #bottom-logo{
-width:28vw;
-}
-
-}
-
-/* LANDSCAPE MODE */
-
-@media (orientation:landscape){
-
-#top-logo{
-max-height:120px;
-}
-
-#subtitle{
-top:calc(120px + 20px);
-}
-
-#time{
-font-size:clamp(119px,10.2vw,221px);
-}
-
-#bottom-logo{
-width:12vw;
-}
-
+position:absolute;
+bottom:3vh;
+right:3vh;
+width:18vh;
+max-width:25%;
 }
 
 </style>
 </head>
 
 <body>
+
+<div id="screen">
 
 <img id="top-logo" src="Texas-Tech-Word-Mark-1Lrvs.png">
 
@@ -140,6 +102,8 @@ width:12vw;
 </div>
 
 <img id="bottom-logo" src="University Recreation fl4CBWrvs.png">
+
+</div>
 
 <script>
 
